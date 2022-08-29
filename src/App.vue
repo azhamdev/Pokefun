@@ -1,5 +1,8 @@
 <script>
 // import HelloWorld from "./components/HelloWorld.vue"
+import defaulImage from "./assets/pokerahasia.png"
+import Vue3Lottie from "vue3-lottie"
+import LoadingLottie from "./assets/loading.json"
 
 export default {
   setup() {
@@ -15,12 +18,19 @@ export default {
     }
   },
 
+  components: {
+    Vue3Lottie,
+  },
+
   data() {
     return {
-      imagePoke: "",
+      imagePoke: defaulImage,
       count: 24,
-      namePoke: "",
+      namePoke: "???",
       loading: false,
+      height: "???",
+      weight: "???",
+      LoadingLottie,
     }
   },
 
@@ -37,7 +47,7 @@ export default {
 
     generatePokemon() {
       this.loading = true
-      var random = Math.floor(Math.random() * 200 + 1)
+      var random = Math.floor(Math.random() * 400)
       this.count = random
       console.log(random)
       const url = this.apiData.apiUrl + this.apiData.endPoint + `${this.count}`
@@ -46,6 +56,8 @@ export default {
         .then((pokemon) => {
           this.imagePoke = pokemon.sprites.other.dream_world.front_default
           this.namePoke = pokemon.name
+          this.height = pokemon.height
+          this.weight = pokemon.weight
           this.loading = false
           console.log(this.imagePoke)
         })
@@ -109,7 +121,7 @@ export default {
               Catch em ! Collect your Strongest and Rarest Pokemon
             </h1>
             <div class="">
-              <a href="#pokeCatch" class="btn btn-primary btn-letscatch"
+              <a href="#pokeCatch" class="btn btn-primary btn-letscatch mt-4"
                 >Let's Catch</a
               >
             </div>
@@ -124,13 +136,25 @@ export default {
       <div class="content-show">
         <img class="logoShow mb-3" src="./assets/pokemonLogo.png" />
         <div class="show-pokemon mb-2">
-          <h1 class="namePoke">{{ namePoke }}</h1>
-          <img v-bind:src="`${imagePoke}`" class="pokeMonster" />
+          <div class="WrapperPokeImg">
+            <img v-bind:src="`${imagePoke}`" class="pokeMonster" />
+          </div>
+          <div class="detail">
+            <h1 class="namePoke">{{ namePoke }}</h1>
+            <h2>
+              Height : <span>{{ height }}</span> m
+            </h2>
+            <h2>
+              Weight : <span>{{ weight }}</span> kg
+            </h2>
+          </div>
         </div>
         <p class="instruction">
           Click button Pokeball below to catch your pokemon !
         </p>
-        <div v-if="loading">Please wait ...</div>
+        <div v-if="loading">
+          <p>Loading ...</p>
+        </div>
         <a v-on:click="generatePokemon">
           <img src="./assets/pokeBall.png" class="pokeButtonCatch" />
         </a>
@@ -193,7 +217,7 @@ span {
   text-transform: capitalize;
   color: #011324;
   font-weight: 700;
-  font-size: 1em;
+  font-size: 2em;
 }
 
 @media only screen and (min-width: 992px) {
@@ -227,7 +251,7 @@ span {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
   }
 
   .logoShow {
@@ -239,13 +263,59 @@ span {
   }
   .pokeButtonCatch:hover {
     cursor: pointer;
-    width: 5.5vw;
+    /* width: 5.5vw; */
+    /* transform: rotate(54deg); */
+    -webkit-animation: spin 4s linear infinite;
+    -moz-animation: spin 4s linear infinite;
+    animation: spin 0.9s linear infinite;
+  }
+  @-moz-keyframes spin {
+    100% {
+      -moz-transform: rotate(360deg);
+    }
+  }
+  @-webkit-keyframes spin {
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+  @keyframes spin {
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
   }
 
   .pokeMonster {
     margin-top: 1em;
-    width: 23%;
+    width: 200px;
   }
+}
+
+.WrapperPokeImg {
+  /* background-color: red; */
+  flex-grow: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.detail {
+  /* background-color: blue; */
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding-left: 0.5em;
+}
+
+.detail h2 {
+  font-size: 1em;
+  color: #011324;
+  font-weight: 300;
+}
+
+.detail span {
+  font-weight: 600;
+  color: #011324;
 }
 
 @media only screen and (max-width: 991px) {
