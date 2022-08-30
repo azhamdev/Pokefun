@@ -128,7 +128,74 @@ export default {
           </div>
         </div>
         <div class="col-lg-6 col-sm-12 col-custom col-pic">
-          <img class="heroPicture" src="./assets/heroPicture.png" />
+          <!-- <img class="heroPicture" src="./assets/heroPicture.png" /> -->
+          <div
+            id="carouselExampleFade"
+            class="carousel"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-inner">
+              <div class="carousel-item active heroPicture">
+                <img
+                  src="./assets/heroPicture.png"
+                  class="d-block heroContent"
+                  alt="..."
+                />
+              </div>
+              <div class="carousel-item heroPicture">
+                <img
+                  src="./assets/slide1.png"
+                  class="d-block heroContent"
+                  alt="..."
+                />
+              </div>
+              <div class="carousel-item heroPicture">
+                <img
+                  src="./assets/slide2.png"
+                  class="d-block heroContent"
+                  alt="..."
+                />
+              </div>
+              <div class="carousel-item heroPicture">
+                <img
+                  src="./assets/slide3.png"
+                  class="d-block heroContent"
+                  alt="..."
+                />
+              </div>
+              <div class="carousel-item heroPicture">
+                <img
+                  src="./assets/slide4.png"
+                  class="d-block heroContent"
+                  alt="..."
+                />
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleFade"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleFade"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -232,6 +299,18 @@ span {
   .pokemonLogoNav {
     width: 70px;
   }
+
+  .heroPicture {
+    width: 40vw;
+    height: 30vw;
+  }
+
+  .heroContent {
+    object-fit: contain;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+  }
   .btn-letscatch {
     border-radius: 0px;
     padding: 0.4em 3em;
@@ -333,6 +412,11 @@ span {
 
   .heroPicture {
     width: 60vw;
+    height: 70vw;
+  }
+
+  .heroContent {
+    width: 100%;
   }
   .title {
     font-size: 8vw;
