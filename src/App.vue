@@ -97,7 +97,7 @@ export default {
               </li>
               <li class="nav-item">
                 <a class="nav-link customNavLink" aria-current="page" href="#"
-                  >Pokemon Cards</a
+                  >Pokemon Generator</a
                 >
               </li>
               <li class="nav-item">
@@ -227,10 +227,21 @@ export default {
         </a>
       </div>
     </div>
+    <a href="#" class="toTop">
+      <img src="./assets/up.png" class="toTop" />
+    </a>
   </div>
 </template>
 
 <style scoped>
+.toTop {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+}
+
 .col-custom {
   display: flex;
   flex-direction: column;
