@@ -3,6 +3,7 @@
 import defaulImage from "./assets/pokerahasia.png"
 import Vue3Lottie from "vue3-lottie"
 import LoadingLottie from "./assets/loading.json"
+import ig from "./assets/ig.png"
 
 export default {
   setup() {
@@ -24,6 +25,7 @@ export default {
 
   data() {
     return {
+      ig,
       imagePoke: defaulImage,
       count: 24,
       namePoke: "???",
@@ -286,10 +288,42 @@ export default {
         </div>
       </div>
     </div>
+    <div class="container footer">
+      <hr />
+      <div class="sosmed">
+        <a href="https://www.instagram.com/azham.rasyid/" target="_blank">
+          <img src="./assets/ig.png" width="30" class="me-2" />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/a-zham-albar-rasyid-958539203/"
+          target="_blank"
+        >
+          <img src="./assets/github.png" width="30" class="me-2" />
+        </a>
+        <a href="https://github.com/azhamdev" target="_blank">
+          <img src="./assets/linkedin.png" width="30" class="me-2" />
+        </a>
+      </div>
+      <p>A'zham Albar Rasyid</p>
+    </div>
   </div>
 </template>
-
 <style scoped>
+.footer {
+  border-top: 1px solid #fff;
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer p {
+  margin-top: 0.7em;
+  font-size: 1em;
+  font-weight: 500;
+  color: #fff;
+}
 .feedback-wrapper {
   margin-top: 100px;
 }
@@ -352,7 +386,6 @@ span {
 }
 .wrapper {
   background-color: #011324;
-  padding-bottom: 100px;
 }
 
 .container-title {
