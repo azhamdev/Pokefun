@@ -381,7 +381,7 @@ export default {
   justify-content: center;
 }
 span {
-  color: #71c3f2;
+  color: #71c3f2 !important;
   font-weight: 900;
 }
 .wrapper {
