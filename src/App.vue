@@ -257,7 +257,7 @@ export default {
       <img src="./assets/up.png" class="toTop" />
     </a>
     <div class="container feedback-wrapper" id="feedback">
-      <h2>What's People Say</h2>
+      <h2 class="peoplesay">What's People Say</h2>
       <div v-for="item in komentar" class="cardFeedback">
         <h5>{{ item.name }}</h5>
         <p>{{ item.content }}</p>
@@ -265,14 +265,14 @@ export default {
       <div class="addComment-wrapper">
         <div class="row">
           <div class="col-lg-5 addComment">
-            <label>Nama</label>
+            <label class="peoplesay">Nama</label>
             <input
               placeholder="Nama"
               type="text"
               v-model="komentarBaru.name"
               class="mb-3 inputName"
             />
-            <label>Komentar</label>
+            <label class="peoplesay">Komentar</label>
             <textarea
               v-model="komentarBaru.content"
               class="mb-3 inputKomentar"
@@ -309,6 +309,9 @@ export default {
   </div>
 </template>
 <style scoped>
+.peoplesay {
+  color: #71c3f2 !important;
+}
 .footer {
   border-top: 1px solid #fff;
   display: flex;
@@ -396,7 +399,7 @@ span {
 }
 
 .navbar-bg-custom {
-  background-color: none;
+  background-color: #011324 !important;
 }
 
 .customNavbrand {
@@ -458,10 +461,11 @@ span {
   .btn-letscatch {
     border-radius: 0px;
     padding: 0.4em 3em;
+    background-color: #71c3f2 !important;
   }
 
   .btn-letscatch:hover {
-    background-color: #1c99e1;
+    background-color: #1c99e1 !important;
     color: #011324;
   }
 
@@ -577,6 +581,7 @@ span {
   .btn-letscatch {
     border-radius: 0px;
     padding: 0.4em 3em;
+    background-color: #71c3f2 !important;
   }
 
   .btn-letscatch:hover {
