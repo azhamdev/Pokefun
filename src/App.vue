@@ -92,7 +92,9 @@ export default {
 <template>
   <div class="wrapper">
     <div class="container-fluid">
-      <nav class="navbar navbar-expand-lg bg-light navbar-bg-custom">
+      <nav
+        class="navbar navbar-expand-lg bg-light navbar-light navbar-bg-custom"
+      >
         <div class="container-fluid">
           <a class="navbar-brand customNavbrand" href="#">
             <img src="./assets/pokemonLogo.png" class="pokemonLogoNav" />
@@ -309,6 +311,13 @@ export default {
   </div>
 </template>
 <style scoped>
+.navbar {
+  --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(113, 195, 242, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(113, 195, 242, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
 .peoplesay {
   color: #71c3f2 !important;
 }
@@ -441,6 +450,7 @@ span {
 
   .pokemon-card-title {
     font-size: 1.2vw;
+    color: #71c3f2 !important;
   }
 
   .pokemonLogoNav {
@@ -572,6 +582,7 @@ span {
 
   .pokemon-card-title {
     font-size: 2vw;
+    color: #71c3f2 !important;
   }
 
   .pokemonLogoNav {
