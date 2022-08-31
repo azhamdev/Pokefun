@@ -31,6 +31,15 @@ export default {
       height: "???",
       weight: "???",
       LoadingLottie,
+      komentar: [
+        { name: "Azham", content: "Wuihh aku dapet Pikachu" },
+        { name: "Udin", content: "Okelahh" },
+        { name: "Budi", content: "Sedappp ih" },
+      ],
+      komentarBaru: {
+        name: "",
+        content: "",
+      },
     }
   },
 
@@ -65,6 +74,15 @@ export default {
           console.log(err)
         })
     },
+    addComment() {
+      this.komentar.push({
+        id: 3,
+        name: this.komentarBaru.name,
+        content: this.komentarBaru.content,
+      })
+      this.komentarBaru.name = ""
+      this.komentarBaru.content = ""
+    },
   },
 }
 </script>
@@ -96,13 +114,19 @@ export default {
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link customNavLink" aria-current="page" href="#"
+                <a
+                  class="nav-link customNavLink"
+                  aria-current="page"
+                  href="#pokeCatch"
                   >Pokemon Generator</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link customNavLink" aria-current="page" href="#"
-                  >Contact</a
+                <a
+                  class="nav-link customNavLink"
+                  aria-current="page"
+                  href="#feedback"
+                  >What's People Say</a
                 >
               </li>
             </ul>
@@ -230,10 +254,85 @@ export default {
     <a href="#" class="toTop">
       <img src="./assets/up.png" class="toTop" />
     </a>
+    <div class="container feedback-wrapper" id="feedback">
+      <h2>What's People Say</h2>
+      <div v-for="item in komentar" class="cardFeedback">
+        <h5>{{ item.name }}</h5>
+        <p>{{ item.content }}</p>
+      </div>
+      <div class="addComment-wrapper">
+        <div class="row">
+          <div class="col-lg-5 addComment">
+            <label>Nama</label>
+            <input
+              placeholder="Nama"
+              type="text"
+              v-model="komentarBaru.name"
+              class="mb-3 inputName"
+            />
+            <label>Komentar</label>
+            <textarea
+              v-model="komentarBaru.content"
+              class="mb-3 inputKomentar"
+            ></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-2">
+            <div class="btn btn-primary btn-letscatch" v-on:click="addComment">
+              kirim
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <style scoped>
+.feedback-wrapper {
+  margin-top: 100px;
+}
+.inputKomentar {
+  border-radius: 10px;
+  padding: 0.5em;
+  height: 210px;
+  border: solid 2px #005c91;
+  background-color: transparent;
+  color: #fff;
+  margin-top: 15px;
+  padding-left: 20px;
+}
+.inputName {
+  border: solid 2px #005c91;
+  background-color: transparent;
+  height: 3em;
+  padding-left: 20px;
+  border-radius: 10px;
+  color: #fff;
+  margin-top: 15px;
+}
+.cardFeedback {
+  background-color: #eeeeee;
+  color: #000;
+  padding: 0.5em;
+  padding-left: 1.2em;
+  margin-bottom: 1em;
+  border-radius: 10px;
+  box-shadow: 10px 10px 341px -91px rgba(207, 207, 207, 0.75);
+  -webkit-box-shadow: 10px 10px 341px -91px rgba(207, 207, 207, 0.75);
+  -moz-box-shadow: 10px 10px 341px -91px rgba(207, 207, 207, 0.75);
+}
+.cardFeedback h5 {
+  font-weight: 500;
+  font-size: 1em;
+  color: #5b5b5b;
+}
+
+.addComment {
+  display: flex;
+  flex-direction: column;
+}
 .toTop {
   width: 40px;
   height: 40px;
@@ -253,6 +352,7 @@ span {
 }
 .wrapper {
   background-color: #011324;
+  padding-bottom: 100px;
 }
 
 .container-title {
