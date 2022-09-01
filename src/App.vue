@@ -451,6 +451,10 @@ span {
     height: 100vh;
   }
 
+  .instruction {
+    color: #71c3f2 !important;
+  }
+
   .pokemon-card-title {
     font-size: 1.2vw;
     color: #71c3f2 !important;
