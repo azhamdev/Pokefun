@@ -248,7 +248,7 @@ export default {
           Click button Pokeball below to catch your pokemon !
         </p>
         <div v-if="loading">
-          <p>Loading ...</p>
+          <p class="loading">Loading ...</p>
         </div>
         <a v-on:click="generatePokemon">
           <img src="./assets/pokeBall.png" class="pokeButtonCatch" />
@@ -300,10 +300,10 @@ export default {
           href="https://www.linkedin.com/in/a-zham-albar-rasyid-958539203/"
           target="_blank"
         >
-          <img src="./assets/github.png" width="30" class="me-2" />
+          <img src="./assets/linkedin.png" width="30" class="me-2" />
         </a>
         <a href="https://github.com/azhamdev" target="_blank">
-          <img src="./assets/linkedin.png" width="30" class="me-2" />
+          <img src="./assets/github.png" width="30" class="me-2" />
         </a>
       </div>
       <p>A'zham Albar Rasyid</p>
@@ -330,6 +330,9 @@ export default {
   align-items: center;
 }
 
+.loading {
+  color: #71c3f2 !important;
+}
 .footer p {
   margin-top: 0.7em;
   font-size: 1em;
@@ -619,6 +622,7 @@ span {
   .instruction {
     font-weight: 200;
     font-size: 0.6em;
+    color: #71c3f2 !important;
   }
 
   .pokeButtonCatch {
