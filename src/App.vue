@@ -446,6 +446,10 @@ span {
   font-size: 2em;
 }
 
+.instruction {
+  color: #71c3f2 !important;
+}
+
 @media only screen and (min-width: 992px) {
   .container-hero {
     height: 100vh;
